@@ -9,8 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
-      - name: Pedir revisión
-        env:
-          CRON_SECRET: ${{ secrets.CRON_SECRET }}
-        run: |
-          curl -fsS --max-time 30 --retry 2 -H "Authorization: Bearer $CRON_SECRET" https://pagovoz-monitor.vercel.app/api/check
+      - run: curl -fsS --max-time 30 --retry 2 https://pagovoz-monitor.vercel.app/api/check
